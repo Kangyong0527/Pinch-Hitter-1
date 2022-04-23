@@ -12,4 +12,4 @@ export NODE_ENV=$(aws ssm get-parameters --region ap-northeast-2 --names NODE_EN
 export REACT_APP_SERVER_URI=$(aws ssm get-parameters --region ap-northeast-2 --names REACT_APP_SERVER_URI --query Parameters[0].Value | sed 's/"//g')
 export PinchHitterUrl=$(aws ssm get-parameters --region ap-northeast-2 --names PinchHitterUrl --query Parameters[0].Value | sed 's/"//g')
 
-authbind --deep pm2 start app.js
+authbind --deep pm2 start "npm run prod" --name app.js
